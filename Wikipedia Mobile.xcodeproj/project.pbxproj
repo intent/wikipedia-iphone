@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		089DBE3715BC992300E8E3D6 /* libIntentKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 089DBE3615BC98F900E8E3D6 /* libIntentKit.a */; };
 		0B280E761122A80300D8D39B /* RecentPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B280E751122A80300D8D39B /* RecentPage.m */; };
 		0B280F221122EB4000D8D39B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B280F211122EB4000D8D39B /* Bookmark.m */; };
 		0B2D8A69111AB1CA00328619 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2D8A67111AB1CA00328619 /* ModalViewController.m */; };
@@ -72,7 +73,19 @@
 		D48EE8D31460B532000661D9 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D48EE8D21460B532000661D9 /* location@2x.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		089DBE3515BC98F900E8E3D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089DBE2E15BC98F900E8E3D6 /* IntentKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9EE8CBA15BB27D30005E5D7;
+			remoteInfo = IntentKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		089DBE0E15BC798A00E8E3D6 /* IntentKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntentKit.h; path = ../IntentKit/IntentKit/IntentKit.h; sourceTree = "<group>"; };
+		089DBE2E15BC98F900E8E3D6 /* IntentKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IntentKit.xcodeproj; path = IntentKit/IntentKit.xcodeproj; sourceTree = "<group>"; };
 		0B280E741122A80300D8D39B /* RecentPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPage.h; sourceTree = "<group>"; };
 		0B280E751122A80300D8D39B /* RecentPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPage.m; sourceTree = "<group>"; };
 		0B280F201122EB4000D8D39B /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
@@ -185,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089DBE3715BC992300E8E3D6 /* libIntentKit.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -201,6 +215,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				089DBE0E15BC798A00E8E3D6 /* IntentKit.h */,
 				99066CE014B6692A00CDD892 /* WikiWebView.h */,
 				99066CDD14B6692300CDD892 /* WikiWebView.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
@@ -217,6 +232,14 @@
 				9911228C14B4CE0A009B3FA7 /* WikiConnectionController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		089DBE2F15BC98F900E8E3D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				089DBE3615BC98F900E8E3D6 /* libIntentKit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		0B280E711122A7DD00D8D39B /* Model */ = {
@@ -319,6 +342,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				089DBE2E15BC98F900E8E3D6 /* IntentKit.xcodeproj */,
 				0BD186E61128DEC100ED0BDE /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -406,12 +430,28 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 089DBE2F15BC98F900E8E3D6 /* Products */;
+					ProjectRef = 089DBE2E15BC98F900E8E3D6 /* IntentKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Wikipedia Mobile */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		089DBE3615BC98F900E8E3D6 /* libIntentKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libIntentKit.a;
+			remoteRef = 089DBE3515BC98F900E8E3D6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {

@@ -17,9 +17,16 @@
 
 #define debug(format, ...) CFShow([NSString stringWithFormat:format, ## __VA_ARGS__]);
 
+@interface RootViewController (){
+    ISKIntentPickerViewController *picker;
+}
+
+@end
+
+
 @implementation RootViewController
 
-@synthesize webView, searchBar, searchResults, toolBar, backButton, forwardButton;
+@synthesize webView, searchBar, searchResults, toolBar, backButton, forwardButton, shareButton;
 @synthesize appDelegate, pageTitle, shade, tableView, externalURL;
 
 @synthesize managedObjectContext;
@@ -178,6 +185,52 @@
 		}
 	}
 }
+
+
+#pragma mark - IntentKit stuff
+
+
+- (IBAction)shareButton:(id)sender {
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [[searchBar.text componentsSeparatedByString:@"-"] objectAtIndex:0],
+                                @"message",nil];
+    
+	ISKIntent* intent = [[ISKIntent alloc] initWithType:@"share" parameters:dictionary];
+	
+	NSURL *url = [[ISKIntentManager sharedIntentManager] defaultURLForIntent:intent];
+	if (!url) {
+		picker = [[ISKIntentPickerViewController alloc] initWithIntent:intent];
+		
+		[picker setDelegate:self];
+		
+		[self presentViewController:picker
+						   animated:YES
+						 completion:nil];
+	}
+	else {
+		[[UIApplication sharedApplication] openURL:url];
+	}
+
+}
+
+
+-(void)intentPickerViewController:(ISKIntentPickerViewController *)controller didSelectToOpenIntent:(ISKIntent *)intent withURL:(NSURL *)url{
+	
+	[controller dismissViewControllerAnimated:YES
+								   completion:nil];
+	picker = nil;
+	
+	[[UIApplication sharedApplication] openURL:url];
+}
+
+-(void)intentPickerViewControllerDidCancel:(ISKIntentPickerViewController *)controller {
+	[controller dismissViewControllerAnimated:YES
+								   completion:nil];
+	picker = nil;
+}
+
+
 
 #pragma mark WebViewDelegate
 
@@ -502,6 +555,7 @@
 	if (![managedObjectContext save:&error]) {
 	}
 }
+
 
 - (IBAction)goBack {
 	[webView goBack];

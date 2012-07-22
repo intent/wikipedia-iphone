@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 #import "WikiWebView.h"
 
-@interface RootViewController : UIViewController <UISearchBarDelegate, UIWebViewDelegate, UIActionSheetDelegate, UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate> {
+@interface RootViewController : UIViewController <UISearchBarDelegate, UIWebViewDelegate, UIActionSheetDelegate, UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate, ISKIntentPickerViewControllerDelegate> {
 	Wikipedia_MobileAppDelegate *appDelegate;
 	
 	WikiWebView *webView;
@@ -20,6 +20,9 @@
 	UIBarButtonItem *backButton;
 	UIBarButtonItem *forwardButton;
         
+    
+    UIBarButtonItem *shareButton;
+    
 	NSString *pageTitle;
     NSURL *externalURL;
 	UIView *shade;
@@ -40,6 +43,7 @@
 @property (nonatomic, retain) IBOutlet UIToolbar *toolBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *backButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *forwardButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *shareButton;
 @property (nonatomic, retain) NSString *pageTitle;
 @property (nonatomic, retain) NSURL *externalURL;
 @property (nonatomic, retain) IBOutlet UIView *shade;

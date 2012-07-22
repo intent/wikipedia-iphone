@@ -26,6 +26,8 @@
 		[settings setObject:@"English" forKey:@"languageName"];
 	}
 	
+    [[ISKIntentManager sharedIntentManager] startIntentManager];
+    
 	[window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
 	
@@ -47,6 +49,8 @@
                         [errorAlert release];
         } 
     }
+    
+    [[ISKIntentManager sharedIntentManager] stopIntentManager];
 }
 
 #pragma mark - 
@@ -65,8 +69,9 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    
+   
 }
+
 
 #pragma mark -
 #pragma mark Memory management
